@@ -1,0 +1,281 @@
+body {
+  background-color: darkseagreen;
+}
+
+.monoton {
+  font-family: 'Monoton', cursive;
+}
+
+.monoton-score {
+  font-family: 'Monoton', cursive;
+  font-size: 36px;
+  margin-top: 26px;
+  margin-bottom: 12px;
+  color: #583b35;
+
+}
+.galada {
+  font-family: 'Galada', cursive;
+  font-size: 40px;
+  margin-bottom: -11px;
+  margin-top: -19px;
+}
+
+#lives-galada {
+  font-family: 'Galada', cursive;
+  font-size: 30px;
+  margin-bottom: -11px;
+  margin-top: 4px;
+  color: #583b35;
+}
+
+#clicks-galada {
+  font-family: 'Galada', cursive;
+  font-size: 30px;
+  margin-bottom: -11px;
+  margin-top: -2px;
+  color: #583b35;
+}
+
+#level-galada {
+  font-family: 'Monoton', cursive;
+  font-size: 30px;
+  margin-bottom: -11px;
+  margin-top: 11px;
+  color: #583b35;
+  font-weight: bold;
+}
+
+.galada-intro-big {
+  font-family: 'Galada', cursive;
+  font-size: 30px;
+  margin-bottom: -11px;
+  margin-top: -50px;
+}
+
+.galada-intro-small {
+  font-family: 'Galada', cursive;
+  font-size: 20px;
+  margin-bottom: -11px;
+  margin-top: 0px;
+}
+
+.start-screen {
+  background-color: rgba(90, 171, 127, 0.84);
+  height: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 26px;
+  margin-bottom: -57px;
+  padding-top: 13px;
+  color: white;
+  font-size: 79px;
+}
+
+.start-button {
+  background-color: rgb(55, 54, 107);
+  color: white;
+  font-size: 2em;
+  padding: 8px;
+  border-radius: 7px;
+  margin-top: 15px;
+}
+
+.instructions {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#container {
+  width: 395px;
+  height: 399px;
+  position: relative;
+  margin-left: 30%;
+  display: initial;
+  z-index: -1;
+  background-color: blue;
+}
+
+.peaker {
+  position: absolute;;
+  margin-left: 87px;
+  z-index: -2;
+  top: 0px;
+  height: 500px;
+}
+
+.peaker img {
+  height: 500px;
+}
+
+.pony {
+  height: 258px;
+  padding-top: 21px;
+}
+
+#win-troll {
+  height: 281px;
+}
+
+#ra-pony {
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 7px;
+}
+
+.scoreboard{
+  z-index: -4;
+  float: right;
+  margin-top: 36px;  margin-right: 50px;
+  margin-left: 50px;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+}
+
+.lifeTrolls{
+  z-index: -4;
+  margin-left: 26px;
+  width: 225px;
+  height: 222px;
+  background-color: #b766ff;
+  padding: 10px;
+  border-style: solid;
+  border-color: #7c473c;
+  text-align: center;
+}
+
+.life_troll {
+  height: 75px;
+  margin-left: 27px;
+}
+
+.lt1 {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-top: 19px;
+  margin-right: 23px;
+  margin-left: -69px;
+}
+
+.lt2 {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-right: 13px;
+  margin-left: 11px;
+}
+
+.lt3 {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin-right: -1px;
+  margin-left: 8px;
+}
+
+.level-image {
+  width: 405px;
+  height: 400px;
+  margin-top: 18px;
+  box-shadow: 1px 1px 50px white;
+  position: absolute;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.background-image {
+  display: block;
+}
+
+.game-table {
+  position:relative;
+  margin-left: 30%;
+  border-collapse:collapse;
+  width: 405px;
+  height: 405px;
+  z-index: 1;
+  border-style: solid;
+  border-weight: 40px;
+  border-width: thick;
+  border-color: #583b35;
+}
+
+.game-table td {
+  cursor:pointer;
+  width:30px;
+  height:30px;
+  border:1px solid #ccc;
+  background-color: purple;
+  text-align:center;
+  font-family:sans-serif;
+}
+
+.game-table td.highlighted-transparent {
+  background-color: transparent;
+}
+
+.game-table td.highlighted-green {
+  background-color: green;
+}
+
+.game-table td.highlighted-red {
+  background-color: red;
+}
+
+.game-table td.highlighted-blue {
+  background-color: blue;
+}
+
+.game-table td.highlighted-purple {
+  background-color: purple;
+}
+
+.game-table td.highlighted-yellow {
+  background-color: yellow;
+}
+
+.game-table td.highlighted-orange {
+  background-color: orange;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
