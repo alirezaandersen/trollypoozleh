@@ -45,14 +45,433 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(3);
+	module.exports = __webpack_require__(2);
 
 
 /***/ },
 /* 1 */
+/***/ function(module, exports) {
+
+	// import $ from "jquery";
+	//
+	// class View {
+	//   constructor(containerId) {
+	//     this.$containerEl = $(`#${containerId}`);
+	//   }
+	//
+	//   render() {
+	//     return true;
+	//   }
+	//
+	//   createGameDivElement(content) {
+	//     const gameDivEl = document.createElement("div");
+	//     gameDivEl.className = "game";
+	//     gameDivEl.innerHTML = content;
+	//     return gameDivEl;
+	//   }
+	// }
+	//
+	// export default View;
+
+	// setInterval(function() {
+	//   var number=(Math.floor((Math.random() * 4) +  1));
+	//   // var id=(Math.floor((Math.random() * 9) +  1));
+	//
+	//   var cell= this.grid.cellArray[(Math.floor( (Math.random() * this.grid.cellArray.length) +  1) )];
+	//   var id= cell.id;
+	//   var colors = "highlighted" + "-" + number;
+	//
+	//   $("td" +"#" + id).attr('class', colors);
+	//
+	// }, 500);
+	"use strict";
+
+/***/ },
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
+
+	__webpack_require__(3);
+
+	var _game = __webpack_require__(7);
+
+	var _game2 = _interopRequireDefault(_game);
+
+	var _config = __webpack_require__(14);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _modals = __webpack_require__(15);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var game = new _game2.default(_config2.default.columns, _config2.default.rows);
+	game.start();
+	(0, _modals.startModalSetup)();
+	(0, _modals.winModalSetup)();
+	(0, _modals.loseModalSetup)();
+
+	////////////////////////////////////////////
+	var startModal = document.getElementById('startModal');
+
+	window.onload = function () {
+	  startModal.style.display = "block";
+	};
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(4);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(6)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../node_modules/css-loader/index.js!./main.css", function() {
+				var newContent = require("!!./../node_modules/css-loader/index.js!./main.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(5)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "body {\n  background-color: darkseagreen;\n}\n\n.monoton {\n  font-family: 'Monoton', cursive;\n}\n\n.monoton-score {\n  font-family: 'Monoton', cursive;\n  font-size: 36px;\n  margin-top: 26px;\n  margin-bottom: 12px;\n  color: #583b35;\n\n}\n.galada {\n  font-family: 'Galada', cursive;\n  font-size: 40px;\n  margin-bottom: -11px;\n  margin-top: -19px;\n}\n\n#lives-galada {\n  font-family: 'Galada', cursive;\n  font-size: 30px;\n  margin-bottom: -11px;\n  margin-top: 4px;\n  color: #583b35;\n}\n\n#clicks-galada {\n  font-family: 'Galada', cursive;\n  font-size: 30px;\n  margin-bottom: -11px;\n  margin-top: -2px;\n  color: #583b35;\n}\n\n#level-galada {\n  font-family: 'Monoton', cursive;\n  font-size: 30px;\n  margin-bottom: -11px;\n  margin-top: 11px;\n  color: #583b35;\n  font-weight: bold;\n}\n\n.galada-intro-big {\n  font-family: 'Galada', cursive;\n  font-size: 30px;\n  margin-bottom: -11px;\n  margin-top: -50px;\n}\n\n.galada-intro-small {\n  font-family: 'Galada', cursive;\n  font-size: 20px;\n  margin-bottom: -11px;\n  margin-top: 0px;\n}\n\n.start-screen {\n  background-color: rgba(90, 171, 127, 0.84);\n  height: 500px;\n  width: 100%;\n  text-align: center;\n}\n\nh2 {\n  margin-top: 26px;\n  margin-bottom: -57px;\n  padding-top: 13px;\n  color: white;\n  font-size: 79px;\n}\n\n.start-button {\n  background-color: rgb(55, 54, 107);\n  color: white;\n  font-size: 2em;\n  padding: 8px;\n  border-radius: 7px;\n  margin-top: 15px;\n}\n\n.instructions {\n  font-size: 25px;\n  font-weight: bold;\n}\n\n#container {\n  width: 395px;\n  height: 399px;\n  position: relative;\n  margin-left: 30%;\n  display: initial;\n  z-index: -1;\n  background-color: blue;\n}\n\n.peaker {\n  position: absolute;;\n  margin-left: 87px;\n  z-index: -2;\n  top: 0px;\n  height: 500px;\n}\n\n.peaker img {\n  height: 500px;\n}\n\n.pony {\n  height: 258px;\n  padding-top: 21px;\n}\n\n#win-troll {\n  height: 281px;\n}\n\n#ra-pony {\n  width: 300px;\n  position: relative;\n  overflow: hidden;\n  display: block;\n  margin: auto;\n  margin-top: 10px;\n  border-radius: 7px;\n}\n\n.scoreboard{\n  z-index: -4;\n  float: right;\n  margin-top: 36px;  margin-right: 50px;\n  margin-left: 50px;\n  width: 300px;\n  height: 150px;\n  text-align: center;\n}\n\n.lifeTrolls{\n  z-index: -4;\n  margin-left: 26px;\n  width: 225px;\n  height: 222px;\n  background-color: #b766ff;\n  padding: 10px;\n  border-style: solid;\n  border-color: #7c473c;\n  text-align: center;\n}\n\n.life_troll {\n  height: 75px;\n  margin-left: 27px;\n}\n\n.lt1 {\n  height: 50px;\n  width: 50px;\n  display: inline-block;\n  margin-top: 19px;\n  margin-right: 23px;\n  margin-left: -69px;\n}\n\n.lt2 {\n  height: 50px;\n  width: 50px;\n  display: inline-block;\n  margin-right: 13px;\n  margin-left: 11px;\n}\n\n.lt3 {\n  height: 50px;\n  width: 50px;\n  display: inline-block;\n  margin-right: -1px;\n  margin-left: 8px;\n}\n\n.level-image {\n  width: 405px;\n  height: 400px;\n  margin-top: 18px;\n  box-shadow: 1px 1px 50px white;\n  position: absolute;\n  overflow: hidden;\n  object-fit: contain;\n}\n\n.background-image {\n  display: block;\n}\n\n.game-table {\n  position:relative;\n  margin-left: 30%;\n  border-collapse:collapse;\n  width: 405px;\n  height: 405px;\n  z-index: 1;\n  border-style: solid;\n  border-weight: 40px;\n  border-width: thick;\n  border-color: #583b35;\n}\n\n.game-table td {\n  cursor:pointer;\n  width:30px;\n  height:30px;\n  border:1px solid #ccc;\n  background-color: purple;\n  text-align:center;\n  font-family:sans-serif;\n}\n\n.game-table td.highlighted-transparent {\n  background-color: transparent;\n}\n\n.game-table td.highlighted-green {\n  background-color: green;\n}\n\n.game-table td.highlighted-red {\n  background-color: red;\n}\n\n.game-table td.highlighted-blue {\n  background-color: blue;\n}\n\n.game-table td.highlighted-purple {\n  background-color: purple;\n}\n\n.game-table td.highlighted-yellow {\n  background-color: yellow;\n}\n\n.game-table td.highlighted-orange {\n  background-color: orange;\n}\n\n.modal {\n  display: none;\n  position: fixed;\n  z-index: 2;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  background-color: rgb(0,0,0);\n  background-color: rgba(0,0,0,0.4);\n}\n\n.modal-content {\n  background-color: #fefefe;\n  margin: 15% auto;\n  padding: 20px;\n  border: 1px solid #888;\n  width: 80%;\n}\n\n.close {\n  color: #aaa;\n  font-size: 28px;\n}\n\n.close:hover,\n.close:focus {\n  color: black;\n  text-decoration: none;\n  cursor: pointer;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -60,47 +479,192 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _jquery = __webpack_require__(2);
+	var _jQuery = __webpack_require__(8);
 
-	var _jquery2 = _interopRequireDefault(_jquery);
+	var _jQuery2 = _interopRequireDefault(_jQuery);
+
+	var _grid = __webpack_require__(9);
+
+	var _grid2 = _interopRequireDefault(_grid);
+
+	var _level = __webpack_require__(11);
+
+	var _level2 = _interopRequireDefault(_level);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var View = function () {
-	  function View(containerId) {
-	    _classCallCheck(this, View);
+	var classToggler = __webpack_require__(12);
+	var events = __webpack_require__(13);
+	var gameLifeCycle = new events.EventEmitter();
 
-	    this.$containerEl = (0, _jquery2.default)("#" + containerId);
+	var Game = function () {
+	  function Game(columns, rows) {
+	    _classCallCheck(this, Game);
+
+	    this.columns = columns;
+	    this.rows = rows;
+	    this.colorsArray = ["highlighted-green", "highlighted-red", "highlighted-blue", "highlighted-purple", "highlighted-yellow", "highlighted-orange"];
+	    this.currentLevel = 1;
+	    this.levelData = new _level2.default(this.currentLevel).data; //sets level of rows and columns
+	    this.grid = new _grid2.default({ columns: this.levelData.columns, rows: this.levelData.rows });
+	    this.lives = this.resetLives();
+	    this.interval = null;
+	    this.clicks = 1;
+	    this.totalScore = 1;
 	  }
 
-	  _createClass(View, [{
-	    key: "render",
-	    value: function render() {
-	      return true;
+	  _createClass(Game, [{
+	    key: 'scoreTracker',
+	    value: function scoreTracker() {
+	      console.log('number of clicks' + ' = ' + this.clicks);
+	      var livesSelector = document.querySelector('#clicks-galada');
+	      if (livesSelector) {
+	        livesSelector.innerHTML = "Score " + this.clicks;
+	      }
+	      return this.clicks++;
 	    }
 	  }, {
-	    key: "createGameDivElement",
-	    value: function createGameDivElement(content) {
-	      var gameDivEl = document.createElement("div");
-	      gameDivEl.className = "game";
-	      gameDivEl.innerHTML = content;
-	      return gameDivEl;
+	    key: 'levelTracker',
+	    value: function levelTracker() {
+	      console.log("this.currentLevel = " + this.currentLevel);
+	      var currentLevelSelector = document.querySelector('#level-galada');
+	      if (currentLevelSelector) {
+	        currentLevelSelector.innerHTML = "Level " + this.currentLevel;
+	      }
+	    }
+	  }, {
+	    key: 'scoreBoard',
+	    value: function scoreBoard() {
+	      this.scoreTracker();
+	      this.levelTracker();
+	      this.totalScore++;
+	    }
+	  }, {
+	    key: 'resetLives',
+	    value: function resetLives() {
+	      var newLives = ["troll1", "troll2", "troll3"];
+	      var newLivesSelector = document.querySelector('#lives-galada');
+	      if (newLivesSelector) {
+	        newLivesSelector.innerHTML = "Lives " + newLives.length;
+	      }
+	      return newLives;
+	    }
+	  }, {
+	    key: 'callbackToChangeClickState',
+	    value: function callbackToChangeClickState(e, game) {
+	      var el = e.target;
+	      classToggler(el, game, gameLifeCycle);
+	    }
+	  }, {
+	    key: 'setupEvents',
+	    value: function setupEvents(callback) {
+	      var self = this;
+	      (0, _jQuery2.default)('.game-table').on('click', 'td', function (e) {
+	        self.scoreBoard();
+	        return callback(e, self);
+	      });
+	      gameLifeCycle.on("end-game", function (outcome) {
+	        console.log(outcome);
+	        self.levelTracker();
+	        self.handleOutcome(outcome);
+	        self.restart();
+	      });
+	    }
+	  }, {
+	    key: 'handleOutcome',
+	    value: function handleOutcome(outcome) {
+	      if (outcome === "win") {
+	        this.currentLevel++;
+	        (0, _jQuery2.default)('#winGameModal').show();
+	      } else {
+	        (0, _jQuery2.default)('#loseGameModal').show();
+	        this.playAgain();
+	      }
+	    }
+	  }, {
+	    key: 'playAgain',
+	    value: function playAgain() {
+	      this.lives = this.resetLives();
+	      if (confirm("Well, you managed to loose.... Wanna try again?") === true) {
+	        //do nothing stay on currentLevel
+	      } else {
+	        this.currentLevel = 1;
+	      }
+	    }
+	  }, {
+	    key: 'start',
+	    value: function start() {
+	      var levelData = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
+
+	      this.grid.buildGrid(levelData);
+	      var initialScoreSelector = document.querySelector('#clicks-galada');
+	      if (initialScoreSelector) {
+	        initialScoreSelector.innerHTML = "Score: " + 0;
+	      }
+	      var levelImageSelector = document.querySelector('.level-image');
+	      if (levelImageSelector) {
+	        levelImageSelector.src = this.levelData.levelPictures;
+	      }
+	      this.interval = setInterval(this._assignClasses(), 500);
+	      this.setupEvents(this.callbackToChangeClickState);
+	    }
+	  }, {
+	    key: 'restart',
+	    value: function restart() {
+	      this.end();
+	      this.start(this.levelData);
+	    }
+	  }, {
+	    key: 'end',
+	    value: function end() {
+	      clearInterval(this.interval);
+	      this.clicks = 1;
+	      this.clearEvents();
+	      this.levelData = new _level2.default(this.currentLevel).data;
+	      (0, _jQuery2.default)('.game-table').remove();
+	    }
+	  }, {
+	    key: 'clearEvents',
+	    value: function clearEvents() {
+	      gameLifeCycle.removeAllListeners('end-game');
+	    }
+	  }, {
+	    key: 'isInvalidClick',
+	    value: function isInvalidClick(el) {
+	      return this.levelData.invalidClicks.includes(el.className);
+	    }
+	  }, {
+	    key: '_assignClasses',
+	    value: function _assignClasses() {
+	      var self = this;
+	      return function () {
+	        var number = Math.floor(Math.random() * self.colorsArray.length);
+	        var cell = self.grid.cellArray[Math.floor(Math.random() * self.grid.cellArray.length)];
+	        var id = cell.id;
+	        var colors = self.colorsArray[number];
+	        (0, _jQuery2.default)("td" + "#" + id).attr('class', colors);
+	        console.log("going");
+	      };
 	    }
 	  }]);
 
-	  return View;
+	  return Game;
 	}();
 
-	exports.default = View;
+	exports.default = Game;
+
+
+	module.exports = Game;
 
 /***/ },
-/* 2 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v3.0.0
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
+	/*!
+	 * jQuery JavaScript Library v3.1.0
 	 * https://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -110,7 +674,7 @@
 	 * Released under the MIT license
 	 * https://jquery.org/license
 	 *
-	 * Date: 2016-06-09T18:02Z
+	 * Date: 2016-07-07T21:44Z
 	 */
 	( function( global, factory ) {
 
@@ -138,7 +702,7 @@
 		}
 
 	// Pass this if window is not defined yet
-	}( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+	} )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 	// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
 	// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
@@ -182,10 +746,14 @@
 			script.text = code;
 			doc.head.appendChild( script ).parentNode.removeChild( script );
 		}
+	/* global Symbol */
+	// Defining this global in .eslintrc would create a danger of using the global
+	// unguarded in another place, it seems safer to define global only for this module
+
 
 
 	var
-		version = "3.0.0",
+		version = "3.1.0",
 
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -417,7 +985,11 @@
 		},
 
 		isEmptyObject: function( obj ) {
+
+			/* eslint-disable no-unused-vars */
+			// See https://github.com/eslint/eslint/issues/6125
 			var name;
+
 			for ( name in obj ) {
 				return false;
 			}
@@ -607,15 +1179,9 @@
 		support: support
 	} );
 
-	// JSHint would error on this code due to the Symbol not being defined in ES5.
-	// Defining this global in .jshintrc would create a danger of using the global
-	// unguarded in another place, it seems safer to just disable JSHint for these
-	// three lines.
-	/* jshint ignore: start */
 	if ( typeof Symbol === "function" ) {
 		jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
 	}
-	/* jshint ignore: end */
 
 	// Populate the class2type map
 	jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
@@ -2854,6 +3420,7 @@
 
 
 
+
 	var dir = function( elem, dir, until ) {
 		var matched = [],
 			truncate = until !== undefined;
@@ -2895,7 +3462,6 @@
 	function winnow( elements, qualifier, not ) {
 		if ( jQuery.isFunction( qualifier ) ) {
 			return jQuery.grep( elements, function( elem, i ) {
-				/* jshint -W018 */
 				return !!qualifier.call( elem, i, elem ) !== not;
 			} );
 
@@ -3521,7 +4087,7 @@
 		// For Promises/A+, convert exceptions into rejections
 		// Since jQuery.when doesn't unwrap thenables, we can skip the extra checks appearing in
 		// Deferred#then to conditionally suppress rejection.
-		} catch ( /*jshint -W002 */ value ) {
+		} catch ( value ) {
 
 			// Support: Android 4.0 only
 			// Strict mode functions invoked without .call/.apply get global-object context
@@ -3886,12 +4452,29 @@
 
 
 
+	jQuery.readyException = function( error ) {
+		window.setTimeout( function() {
+			throw error;
+		} );
+	};
+
+
+
+
 	// The deferred used on DOM ready
 	var readyList = jQuery.Deferred();
 
 	jQuery.fn.ready = function( fn ) {
 
-		readyList.then( fn );
+		readyList
+			.then( fn )
+
+			// Wrap jQuery.readyException in a function so that the lookup
+			// happens at the time of error handling instead of callback
+			// registration.
+			.catch( function( error ) {
+				jQuery.readyException( error );
+			} );
 
 		return this;
 	};
@@ -4031,7 +4614,6 @@
 		//    - Node.DOCUMENT_NODE
 		//  - Object
 		//    - Any
-		/* jshint -W018 */
 		return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
 	};
 
@@ -4532,8 +5114,12 @@
 			scale = 1,
 			maxIterations = 20,
 			currentValue = tween ?
-				function() { return tween.cur(); } :
-				function() { return jQuery.css( elem, prop, "" ); },
+				function() {
+					return tween.cur();
+				} :
+				function() {
+					return jQuery.css( elem, prop, "" );
+				},
 			initial = currentValue(),
 			unit = valueParts && valueParts[ 3 ] || ( jQuery.cssNumber[ prop ] ? "" : "px" ),
 
@@ -5575,7 +6161,13 @@
 
 
 	var
+
+		/* eslint-disable max-len */
+
+		// See https://github.com/eslint/eslint/issues/3229
 		rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
+
+		/* eslint-enable */
 
 		// Support: IE <=10 - 11, Edge 12 - 13
 		// In IE/Edge using regex groups here causes severe slowdowns.
@@ -6732,7 +7324,7 @@
 		// If we include width, step value is 1 to do all cssExpand values,
 		// otherwise step value is 2 to skip over Left and Right
 		includeWidth = includeWidth ? 1 : 0;
-		for ( ; i < 4 ; i += 2 - includeWidth ) {
+		for ( ; i < 4; i += 2 - includeWidth ) {
 			which = cssExpand[ i ];
 			attrs[ "margin" + which ] = attrs[ "padding" + which ] = type;
 		}
@@ -6759,7 +7351,6 @@
 	}
 
 	function defaultPrefilter( elem, props, opts ) {
-		/* jshint validthis: true */
 		var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display,
 			isBox = "width" in props || "height" in props,
 			anim = this,
@@ -6901,8 +7492,11 @@
 					showHide( [ elem ], true );
 				}
 
-				/* jshint -W083 */
+				/* eslint-disable no-loop-func */
+
 				anim.done( function() {
+
+				/* eslint-enable no-loop-func */
 
 					// The final step of a "hide" animation is actually hiding the element
 					if ( !hidden ) {
@@ -6988,7 +7582,7 @@
 					index = 0,
 					length = animation.tweens.length;
 
-				for ( ; index < length ; index++ ) {
+				for ( ; index < length; index++ ) {
 					animation.tweens[ index ].run( percent );
 				}
 
@@ -7029,7 +7623,7 @@
 						return this;
 					}
 					stopped = true;
-					for ( ; index < length ; index++ ) {
+					for ( ; index < length; index++ ) {
 						animation.tweens[ index ].run( 1 );
 					}
 
@@ -7047,7 +7641,7 @@
 
 		propFilter( props, animation.opts.specialEasing );
 
-		for ( ; index < length ; index++ ) {
+		for ( ; index < length; index++ ) {
 			result = Animation.prefilters[ index ].call( animation, elem, props, animation.opts );
 			if ( result ) {
 				if ( jQuery.isFunction( result.stop ) ) {
@@ -7101,7 +7695,7 @@
 				index = 0,
 				length = props.length;
 
-			for ( ; index < length ; index++ ) {
+			for ( ; index < length; index++ ) {
 				prop = props[ index ];
 				Animation.tweeners[ prop ] = Animation.tweeners[ prop ] || [];
 				Animation.tweeners[ prop ].unshift( callback );
@@ -7962,11 +8556,16 @@
 
 					while ( i-- ) {
 						option = options[ i ];
+
+						/* eslint-disable no-cond-assign */
+
 						if ( option.selected =
 							jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1
 						) {
 							optionSet = true;
 						}
+
+						/* eslint-enable no-cond-assign */
 					}
 
 					// Force browsers to behave consistently when non-matching value is set
@@ -8675,6 +9274,7 @@
 			processData: true,
 			async: true,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+
 			/*
 			timeout: 0,
 			data: null,
@@ -10135,377 +10735,626 @@
 
 
 	return jQuery;
-	} ) );
+	} );
 
 
 /***/ },
-/* 3 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
-	var _view = __webpack_require__(1);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _view2 = _interopRequireDefault(_view);
+	var _cell = __webpack_require__(10);
 
-	__webpack_require__(4);
+	var _cell2 = _interopRequireDefault(_cell);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// import $ from "jquery";
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	var Grid = function () {
+	  function Grid(options) {
+	    _classCallCheck(this, Grid);
 
-	var gameInstance = new _view2.default("game-canvas");
+	    this.columns = options.columns;
+	    this.rows = options.rows;
+	    this.cellArray = [];
+	  }
 
-	gameInstance.render();
+	  _createClass(Grid, [{
+	    key: 'updateGridDimensions',
+	    value: function updateGridDimensions(levelData) {
+	      //update columns and rows
+	      //based on which level is being passed in
+	      if (levelData) {
+	        this.columns = levelData.columns;
+	        this.rows = levelData.rows;
+	      }
+	    }
+	  }, {
+	    key: 'buildGrid',
+	    value: function buildGrid(levelData) {
+	      this.updateGridDimensions(levelData);
+	      var i = 0;
+	      var grid = document.createElement('table');
+	      grid.className = 'game-table';
+
+	      for (var r = 0; r < this.rows; ++r) {
+	        var tr = grid.appendChild(document.createElement('tr'));
+	        for (var c = 0; c < this.columns; ++c) {
+	          var cell = tr.appendChild(document.createElement('td'));
+	          cell.id = ++i;
+	          var cell_data = new _cell2.default(i);
+	          this.cellArray.push(cell_data);
+	        }
+	      }
+	      document.body.appendChild(grid);
+	    }
+	  }]);
+
+	  return Grid;
+	}();
+
+	module.exports = Grid;
 
 /***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(5);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(7)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/css-loader/index.js!./main.css", function() {
-				var newContent = require("!!./../node_modules/css-loader/index.js!./main.css");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(6)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "html {\n  background-color: teal;\n}\n\n#game-canvas {\n  margin-top: 5%;\n  background-color: white;\n  margin-left: 40%;\n  box-shadow: 1px 1px 50px white;\n  border-radius: 10px;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 6 */
+/* 10 */
 /***/ function(module, exports) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
+	"use strict";
 
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
+	var Cell = function Cell(id) {
+	  _classCallCheck(this, Cell);
+
+	  this.id = id;
 	};
+
+	module.exports = Cell;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Level = function () {
+	  function Level(level) {
+	    _classCallCheck(this, Level);
+
+	    this.data = this.levelSelector(level);
+	  }
+
+	  _createClass(Level, [{
+	    key: "levelSelector",
+	    value: function levelSelector(level) {
+	      //selects currentLevel data
+	      if (level === 1) {
+	        return this.levelOne();
+	      } else if (level === 2) {
+	        return this.levelTwo();
+	      } else if (level === 3) {
+	        return this.levelThree();
+	      } else if (level === 4) {
+	        return this.levelFour();
+	      } else if (level === 5) {
+	        return this.levelFive();
+	      } else {
+	        return this.levelOne();
+	      }
+	    }
+	  }, {
+	    key: "levelOne",
+	    value: function levelOne() {
+	      return {
+	        columns: 3,
+	        rows: 3,
+	        invalidClicks: ["highlighted-red"],
+	        levelPictures: "./assets/images/hermagesty.jpg"
+	      };
+	    }
+	  }, {
+	    key: "levelTwo",
+	    value: function levelTwo() {
+	      return {
+	        columns: 4,
+	        rows: 4,
+
+	        invalidClicks: ["highlighted-red", "highlighted-blue"],
+	        levelPictures: "./assets/images/family.jpg"
+	      };
+	    }
+	  }, {
+	    key: "levelThree",
+	    value: function levelThree() {
+	      return {
+	        columns: 5,
+	        rows: 5,
+	        invalidClicks: ["highlighted-red", "highlighted-blue", "highlighted-purple"],
+	        levelPictures: "./assets/images/suprize.jpg"
+	      };
+	    }
+	  }, {
+	    key: "levelFour",
+	    value: function levelFour() {
+	      return {
+	        columns: 8,
+	        rows: 8,
+	        invalidClicks: ["highlighted-red", "highlighted-blue", "highlighted-purple", "highlighted-orange"],
+	        levelPictures: "./assets/images/horsetroll.jpg"
+	      };
+	    }
+	  }, {
+	    key: "levelFive",
+	    value: function levelFive() {
+	      return {
+	        columns: 10,
+	        rows: 10,
+	        invalidClicks: ["highlighted-red", "highlighted-blue", "highlighted-purple", "highlighted-orange", "highlighted-yellow"],
+	        levelPictures: "./assets/images/hermagesty.jpg"
+	      };
+	    }
+	  }]);
+
+	  return Level;
+	}();
+
+	module.exports = Level;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function classToggler(el, game, gameLifeCycle) {
+	  if (game.isInvalidClick(el)) {
+	    // console.log("You clicked: " + el.className );
+	    removeLife(game.lives, gameLifeCycle);
+	  } else if (el.className === "highlighted-green") {
+	    el.className = "highlighted-transparent";
+	    solveTile(el.id, game.grid.cellArray, gameLifeCycle);
+	  }
+	}
+
+	function solveTile(id, array, gameLifeCycle) {
+	  array = endPlayArray(id, array);
+	  if (array.length === 0) {
+	    gameLifeCycle.emit("end-game", "win");
+	  }
+	}
+
+	function endPlayArray(cellId, array) {
+	  for (var i = 0; i < array.length; i++) {
+	    if (array[i].id === Number(cellId)) {
+	      array.splice(i, 1);
+	    }
+	  }
+	  return array;
+	}
+
+	function removeLife(array, gameLifeCycle) {
+	  array.pop();
+	  var currentLivesSelector = document.querySelector('#lives-galada');
+	  if (currentLivesSelector) {
+	    currentLivesSelector.innerHTML = "Lives " + array.length;
+	  }
+	  if (document.querySelector('.lt3') || document.querySelector('.lt2') || document.querySelector('.lt1')) {
+	    hideLifePonies(array);
+	  }
+	  if (array.length === 0) {
+	    gameLifeCycle.emit("end-game", "lost");
+	  }
+	}
+
+	function hide1Pony() {
+	  document.querySelector('.lt3').style.visibility = 'hidden';
+	}
+
+	function hide2Ponies() {
+	  hide1Pony();
+	  document.querySelector('.lt2').style.visibility = 'hidden';
+	}
+
+	function hide3Ponies() {
+	  hide2Ponies();
+	  document.querySelector('.lt1').style.visibility = 'hidden';
+	}
+
+	function hideLifePonies(array) {
+	  if (array.length === 2) {
+	    hide1Pony();
+	  } else if (array.length === 1) {
+	    hide2Ponies();
+	  } else if (array.length === 0) {
+	    hide3Ponies();
+	  }
+	}
+
+	module.exports = classToggler;
+
+/***/ },
+/* 13 */
+/***/ function(module, exports) {
+
+	// Copyright Joyent, Inc. and other Node contributors.
+	//
+	// Permission is hereby granted, free of charge, to any person obtaining a
+	// copy of this software and associated documentation files (the
+	// "Software"), to deal in the Software without restriction, including
+	// without limitation the rights to use, copy, modify, merge, publish,
+	// distribute, sublicense, and/or sell copies of the Software, and to permit
+	// persons to whom the Software is furnished to do so, subject to the
+	// following conditions:
+	//
+	// The above copyright notice and this permission notice shall be included
+	// in all copies or substantial portions of the Software.
+	//
+	// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+	// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+	// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+	// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+	// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+	function EventEmitter() {
+	  this._events = this._events || {};
+	  this._maxListeners = this._maxListeners || undefined;
+	}
+	module.exports = EventEmitter;
+
+	// Backwards-compat with node 0.10.x
+	EventEmitter.EventEmitter = EventEmitter;
+
+	EventEmitter.prototype._events = undefined;
+	EventEmitter.prototype._maxListeners = undefined;
+
+	// By default EventEmitters will print a warning if more than 10 listeners are
+	// added to it. This is a useful default which helps finding memory leaks.
+	EventEmitter.defaultMaxListeners = 10;
+
+	// Obviously not all Emitters should be limited to 10. This function allows
+	// that to be increased. Set to zero for unlimited.
+	EventEmitter.prototype.setMaxListeners = function(n) {
+	  if (!isNumber(n) || n < 0 || isNaN(n))
+	    throw TypeError('n must be a positive number');
+	  this._maxListeners = n;
+	  return this;
+	};
+
+	EventEmitter.prototype.emit = function(type) {
+	  var er, handler, len, args, i, listeners;
+
+	  if (!this._events)
+	    this._events = {};
+
+	  // If there is no 'error' event listener then throw.
+	  if (type === 'error') {
+	    if (!this._events.error ||
+	        (isObject(this._events.error) && !this._events.error.length)) {
+	      er = arguments[1];
+	      if (er instanceof Error) {
+	        throw er; // Unhandled 'error' event
+	      } else {
+	        // At least give some kind of context to the user
+	        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
+	        err.context = er;
+	        throw err;
+	      }
+	    }
+	  }
+
+	  handler = this._events[type];
+
+	  if (isUndefined(handler))
+	    return false;
+
+	  if (isFunction(handler)) {
+	    switch (arguments.length) {
+	      // fast cases
+	      case 1:
+	        handler.call(this);
+	        break;
+	      case 2:
+	        handler.call(this, arguments[1]);
+	        break;
+	      case 3:
+	        handler.call(this, arguments[1], arguments[2]);
+	        break;
+	      // slower
+	      default:
+	        args = Array.prototype.slice.call(arguments, 1);
+	        handler.apply(this, args);
+	    }
+	  } else if (isObject(handler)) {
+	    args = Array.prototype.slice.call(arguments, 1);
+	    listeners = handler.slice();
+	    len = listeners.length;
+	    for (i = 0; i < len; i++)
+	      listeners[i].apply(this, args);
+	  }
+
+	  return true;
+	};
+
+	EventEmitter.prototype.addListener = function(type, listener) {
+	  var m;
+
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+
+	  if (!this._events)
+	    this._events = {};
+
+	  // To avoid recursion in the case that type === "newListener"! Before
+	  // adding it to the listeners, first emit "newListener".
+	  if (this._events.newListener)
+	    this.emit('newListener', type,
+	              isFunction(listener.listener) ?
+	              listener.listener : listener);
+
+	  if (!this._events[type])
+	    // Optimize the case of one listener. Don't need the extra array object.
+	    this._events[type] = listener;
+	  else if (isObject(this._events[type]))
+	    // If we've already got an array, just append.
+	    this._events[type].push(listener);
+	  else
+	    // Adding the second element, need to change to array.
+	    this._events[type] = [this._events[type], listener];
+
+	  // Check for listener leak
+	  if (isObject(this._events[type]) && !this._events[type].warned) {
+	    if (!isUndefined(this._maxListeners)) {
+	      m = this._maxListeners;
+	    } else {
+	      m = EventEmitter.defaultMaxListeners;
+	    }
+
+	    if (m && m > 0 && this._events[type].length > m) {
+	      this._events[type].warned = true;
+	      console.error('(node) warning: possible EventEmitter memory ' +
+	                    'leak detected. %d listeners added. ' +
+	                    'Use emitter.setMaxListeners() to increase limit.',
+	                    this._events[type].length);
+	      if (typeof console.trace === 'function') {
+	        // not supported in IE 10
+	        console.trace();
+	      }
+	    }
+	  }
+
+	  return this;
+	};
+
+	EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+	EventEmitter.prototype.once = function(type, listener) {
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+
+	  var fired = false;
+
+	  function g() {
+	    this.removeListener(type, g);
+
+	    if (!fired) {
+	      fired = true;
+	      listener.apply(this, arguments);
+	    }
+	  }
+
+	  g.listener = listener;
+	  this.on(type, g);
+
+	  return this;
+	};
+
+	// emits a 'removeListener' event iff the listener was removed
+	EventEmitter.prototype.removeListener = function(type, listener) {
+	  var list, position, length, i;
+
+	  if (!isFunction(listener))
+	    throw TypeError('listener must be a function');
+
+	  if (!this._events || !this._events[type])
+	    return this;
+
+	  list = this._events[type];
+	  length = list.length;
+	  position = -1;
+
+	  if (list === listener ||
+	      (isFunction(list.listener) && list.listener === listener)) {
+	    delete this._events[type];
+	    if (this._events.removeListener)
+	      this.emit('removeListener', type, listener);
+
+	  } else if (isObject(list)) {
+	    for (i = length; i-- > 0;) {
+	      if (list[i] === listener ||
+	          (list[i].listener && list[i].listener === listener)) {
+	        position = i;
+	        break;
+	      }
+	    }
+
+	    if (position < 0)
+	      return this;
+
+	    if (list.length === 1) {
+	      list.length = 0;
+	      delete this._events[type];
+	    } else {
+	      list.splice(position, 1);
+	    }
+
+	    if (this._events.removeListener)
+	      this.emit('removeListener', type, listener);
+	  }
+
+	  return this;
+	};
+
+	EventEmitter.prototype.removeAllListeners = function(type) {
+	  var key, listeners;
+
+	  if (!this._events)
+	    return this;
+
+	  // not listening for removeListener, no need to emit
+	  if (!this._events.removeListener) {
+	    if (arguments.length === 0)
+	      this._events = {};
+	    else if (this._events[type])
+	      delete this._events[type];
+	    return this;
+	  }
+
+	  // emit removeListener for all listeners on all events
+	  if (arguments.length === 0) {
+	    for (key in this._events) {
+	      if (key === 'removeListener') continue;
+	      this.removeAllListeners(key);
+	    }
+	    this.removeAllListeners('removeListener');
+	    this._events = {};
+	    return this;
+	  }
+
+	  listeners = this._events[type];
+
+	  if (isFunction(listeners)) {
+	    this.removeListener(type, listeners);
+	  } else if (listeners) {
+	    // LIFO order
+	    while (listeners.length)
+	      this.removeListener(type, listeners[listeners.length - 1]);
+	  }
+	  delete this._events[type];
+
+	  return this;
+	};
+
+	EventEmitter.prototype.listeners = function(type) {
+	  var ret;
+	  if (!this._events || !this._events[type])
+	    ret = [];
+	  else if (isFunction(this._events[type]))
+	    ret = [this._events[type]];
+	  else
+	    ret = this._events[type].slice();
+	  return ret;
+	};
+
+	EventEmitter.prototype.listenerCount = function(type) {
+	  if (this._events) {
+	    var evlistener = this._events[type];
+
+	    if (isFunction(evlistener))
+	      return 1;
+	    else if (evlistener)
+	      return evlistener.length;
+	  }
+	  return 0;
+	};
+
+	EventEmitter.listenerCount = function(emitter, type) {
+	  return emitter.listenerCount(type);
+	};
+
+	function isFunction(arg) {
+	  return typeof arg === 'function';
+	}
+
+	function isNumber(arg) {
+	  return typeof arg === 'number';
+	}
+
+	function isObject(arg) {
+	  return typeof arg === 'object' && arg !== null;
+	}
+
+	function isUndefined(arg) {
+	  return arg === void 0;
+	}
 
 
 /***/ },
-/* 7 */
-/***/ function(module, exports, __webpack_require__) {
+/* 14 */
+/***/ function(module, exports) {
 
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
+	// 'use strict';
+	//
+	// const Config = {
+	//   columns:3,
+	//   rows:3,
+	// };
+	//
+	// module.exports = Config;
+	"use strict";
 
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
 
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+	"use strict";
 
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.startModalSetup = startModalSetup;
+	exports.winModalSetup = winModalSetup;
+	exports.loseModalSetup = loseModalSetup;
+	////////////////////////////////////////////
+	function startModalSetup() {
 
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
+	  var startModal = document.getElementById('startModal');
 
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
+	  var closeStart = document.getElementsByClassName("closeStart")[0];
+
+	  closeStart.onclick = function () {
+	    startModal.style.display = "none";
+	  };
 	}
 
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
+	////////////////////////////////////////////
+	function winModalSetup() {
+	  var winModal = document.getElementById('winGameModal');
+
+	  var closeWin = document.getElementsByClassName("closeWinGame")[0];
+
+	  closeWin.onclick = function () {
+	    winModal.style.display = "none";
+	    resetPonies();
+	  };
 	}
 
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
+	////////////////////////////////////////////
+	function loseModalSetup() {
+	  var endModal = document.getElementById('loseGameModal');
+	  var close = document.getElementsByClassName("closeLoseGame")[0];
+
+	  close.onclick = function () {
+	    endModal.style.display = "none";
+	    resetPonies();
+	  };
 	}
 
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
+	function resetPonies() {
+	  document.querySelector('.lt3').style.visibility = 'visible';
+	  document.querySelector('.lt2').style.visibility = 'visible';
+	  document.querySelector('.lt1').style.visibility = 'visible';
 	}
-
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
+	module.exports = { startModalSetup: startModalSetup, winModalSetup: winModalSetup, loseModalSetup: loseModalSetup };
 
 /***/ }
 /******/ ]);
