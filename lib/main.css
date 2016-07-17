@@ -37,6 +37,16 @@ body {
   color: #583b35;
 }
 
+.level-info {
+  font-family: 'Galada', cursive;
+  font-size: 30px;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  color: #583b35;
+  text-align: center;
+}
+
 #level-galada {
   font-family: 'Monoton', cursive;
   font-size: 30px;
@@ -214,7 +224,7 @@ h2 {
   width:30px;
   height:30px;
   border:1px solid #ccc;
-  background-color: purple;
+  background-color: #b766ff;
   text-align:center;
   font-family:sans-serif;
 }
@@ -225,18 +235,22 @@ h2 {
 
 .game-table td.highlighted-green {
   background-color: green;
+  /*box-shadow: inset 0 0 120px green;*/
 }
 
 .game-table td.highlighted-red {
   background-color: red;
+  /*box-shadow: inset 0 0 120px red;*/
 }
 
 .game-table td.highlighted-blue {
   background-color: blue;
+  /*box-shadow: inset 0 0 120px blue;*/
 }
 
 .game-table td.highlighted-purple {
   background-color: purple;
+
 }
 
 .game-table td.highlighted-yellow {

@@ -38,23 +38,4 @@ describe('grid', function () {
     expect(grid.cellArray).to.be.an.instanceof(Array);
     expect(grid.cellArray.length).to.equal(25);
   });
-
-  context('updateGridDimensions', function () {
-    xit('builds the grid according to level settings', function () {
-      const grid = new Grid({
-        // columns: 3,
-        // rows: 3
-      });
-
-      grid.buildGrid();
-
-      expect(grid.columns).to.eql(3);
-      expect(grid.rows).to.eql(3);
-
-      const levelData = grid.updateGridDimensions({ columns: 5, rows: 5, invalidClicks: ['highlighted-red', 'highlighted-blue']});
-      grid.buildGrid(levelData);
-      expect(grid.columns).to.eql(5);
-      expect(grid.rows).to.eql(5);
-    });
-  });
 });

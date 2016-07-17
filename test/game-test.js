@@ -36,11 +36,9 @@ describe('game', function () {
         const outcome = "win";
         game.start();
         expect(game.currentLevel).to.equal(1);
-        expect($('#winGameModal').is(":visible")).to.equal(false);
         game.handleOutcome(outcome);
 
         expect(game.currentLevel).to.equal(2);
-        // expect($('#winGameModal').is(":visible")).to.equal(true);
       });
     });
 
@@ -51,12 +49,10 @@ describe('game', function () {
         const outcome = "lost";
         game.start();
         expect(game.currentLevel).to.equal(1);
-        expect($('#winGameModal').is(":visible")).to.equal(false);
         game.handleOutcome(outcome);
 
         expect(game.currentLevel).to.equal(1);
         done();
-        // expect($('#winGameModal').is(":visible")).to.equal(true);
       });
     });
   });
@@ -74,36 +70,6 @@ describe('game', function () {
 
       expect(game.lives.length).to.equal(3);
 
-    });
-
-    context('from current level or level 1', function () {
-      xit('when user decides for current level', function () {
-        const game = new Game(2, 2);
-
-        game.start();
-
-        game.currentLevel = 2;
-        game.lives.length = 0;
-
-        game.playAgain();
-        // $('button#close1').trigger('click');
-
-        expect(game.currentLevel).to.equal(2);
-      });
-
-      xit('when user decides for current level', function () {
-        const game = new Game(2, 2);
-
-        game.start();
-
-        game.currentLevel = 3;
-        game.lives.length = 0;
-
-        game.playAgain();
-        // $('button#close1').trigger('click');
-
-        expect(game.currentLevel).to.equal(1);
-      });
     });
   });
 
